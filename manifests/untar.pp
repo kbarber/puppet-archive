@@ -103,7 +103,7 @@ define archive::untar(
 				ensure => directory,
 				recurse => true,
 				source => "${tmp_archive_dir}/${_rootdir}",
-				require => File[$tmp_archive_dir]
+				require => [ File[$tmp_archive_dir], Exec[$exec_name] ]
 			}
 			
 		}
